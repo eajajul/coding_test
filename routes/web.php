@@ -18,9 +18,7 @@ use App\Http\Controllers\Backend\CustomerController;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.main');
-});
+
 
 
 //Register
@@ -37,7 +35,7 @@ Route::group(['as'=>'Login.','middleware'=>'guest'], function(){
 
 //Home
 Route::group(['as'=>'Home.','middleware'=>'auth'], function(){
-    Route::get('/home',[DashBoardController::class,'Index'])->name('home');
+    Route::get('/',[DashBoardController::class,'Index'])->name('home');
     Route::get('/log-out',[DashBoardController::class,'LogOut'])->name('LogOut');
 });
 
