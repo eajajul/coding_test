@@ -92,6 +92,7 @@ This is an example of how to list things you need to use the software and how to
 4. Migrate the databse
    ```sh
    $ php artisan migrate
+   or you  can the import sql file provided
    ```
 4. Install passport config
    ```sh
@@ -124,7 +125,7 @@ To run the appliation please use follwing command
 ## Route defination
 list of routes in gthe application
 
-1. Api routes for cutomer login and registration(If using postman please use Update header with `({"key":"Accept","value":"application/json","description":"","type":"text","enabled":true}))`
+1. Api routes for cutomer login and registration(If using postman then to get `validation error` please use Update header with `({"key":"Accept","value":"application/json","description":"","type":"text","enabled":true}))`
  ```sh
        1. http://127.0.0.1:8000/api/login  request body
         {
@@ -161,12 +162,17 @@ list of routes in gthe application
         2. http://127.0.0.1:8000/employee  
               get list of employee
               add/edit/delte employee
+              
+              
         3. http://127.0.0.1:8000/customer-index  
               get list of customer
               add new customer
               Search customer by name,phone,email (`ajax search`)
+              
+              
         4. http://127.0.0.1:8000/csv-upload  
               ulpoad a csv file contain customer details
+              (sample .csv file is provided you can use this file to import customer data)
               it will the read the csv file and customer in the databse   
 
 
