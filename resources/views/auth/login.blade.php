@@ -45,6 +45,8 @@
             Sign in
           </button>
         </div>
+        <p class=" text-gray-500 text-sm text-center">*Dont have an account? <a href="{{route('Register.register')}}" class=" text-indigo-500 "> Click here to register</a> </p>
+
       </form>
     </div>
   </div> 

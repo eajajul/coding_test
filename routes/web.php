@@ -44,6 +44,10 @@ Route::group(['as'=>'Employee.','middleware'=>'auth'], function(){
     Route::get('/employee',[EmployeeController::class,'Index'])->name('index');
     Route::get('/employee-add',[EmployeeController::class,'Add'])->name('add');
     Route::post('/employee-insert',[EmployeeController::class,'Insert'])->name('insert');
+    Route::get('/employee-edit/{id}',[EmployeeController::class,'Edit'])->name('edit');
+    Route::post('/employee-delete',[EmployeeController::class,'Delete'])->name('delete');
+
+
 });
 
 //Customer

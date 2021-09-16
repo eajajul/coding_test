@@ -60,6 +60,7 @@
             Register
           </button>
         </div>
+        <p class=" text-gray-500 text-sm text-center">*Have an account? <a href="{{route('Login.login')}}" class=" text-indigo-500 "> Click here to login</a> </p>
       </form>
     </div>
   </div> 

@@ -25,13 +25,13 @@ class EmployeeController extends Controller
     public function Insert(Request $request)
     {
         $this->validate($request,[
-            'email'=>'required|email|unique:users,email',
+            'email'=>'required|email|unique:users,email,'.$request->id.',id',
             'name'=>'required',
-            'phone'=>'required|numeric|unique:users,phone',
+            'phone'=>'required|numeric|unique:users,phone,'.$request->id.',id',
             'password'=>'required|confirmed|min:6'
         ]);
 
-        $employee= new User();
+        $employee=!empty($request->id) ? User::findOrfail($request->id) : new User();
         $employee->email=$request->email;
         $employee->name=$request->name;
         $employee->phone=$request->phone;
@@ -42,5 +42,20 @@ class EmployeeController extends Controller
         Session::flash('success','Employee added successfully');
         return redirect()->route('Employee.index');
 
+    }
+
+    public function Edit($id)
+    {
+        $employee=User::findOrfail($id);
+        return view('employee.edit',compact('employee'));
+    }
+
+    public function Delete(Request $request)
+    {
+        $employee=User::findOrfail($request->id);
+        $employee->delete();
+
+        Session::flash('success','Deleted successfully');
+        return back();
     }
 }
